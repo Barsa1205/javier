@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Plantilla</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Formulario 2</h1>
+    <form action="#" th:action="@{/form2}" method="post">
+		  
+		<p th:if="${error}" th:text="${error}" style="color:red;"></p>
+		
+		<p>Selecciona tu género:</p>
+		  
+		  <label>
+		    <input type="radio" name="genero" value="Hombre"> Hombre
+		  </label><br><br>
+
+		  <label>
+		    <input type="radio" name="genero" value="Mujer"> Mujer
+		  </label><br><br>
+
+		  <label>
+		    <input type="radio" name="genero" value="?"> Prefiero no decirlo
+		  </label><br><br>
+
+        <p><input type="submit" value="Subir" /> <input type="reset" value="Resetear" /></p>
+    </form>
+</body>
+</html>
