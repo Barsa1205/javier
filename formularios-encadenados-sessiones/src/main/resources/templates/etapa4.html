@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head><title>MiniQuizz resultado</title></head>
+	<body>
+		<h1>Resultado del MiniQuizz</h1>
+		<p>Tus respuestas son:</p>
+		<ol>
+		<li th:each="respuesta : ${respuestas}" th:text="${respuesta}" />
+		</ol>
+		<a href="/">Volver a empezar</a>
+	</body>
+</html>
