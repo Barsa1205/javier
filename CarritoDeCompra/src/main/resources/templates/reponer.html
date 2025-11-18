@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reponer Admin</title>
+</head>
+<body>
+	<h1>¡Bienvenido Admin!</h1>
+	</br>
+	
+	<h2>Stock actual (Provisional):</h2>
+	<ol>
+		<li th:text="|platanos: ${platanos}|"></li>
+		<li th:text="|fresas: ${fresas}|"></li>
+		<li th:text="|kiwis: ${kiwis}|"></li>
+	</ol>
+	</br>
+    
+	<h2>Stock a Reponer</h2>
+    <form action="reponer" method="post">
+        
+		<label for="platanos">plátanos:</label>
+        <input type="number" min="0" name="platanos" />
+        <br /><br />
+
+        <label for="fresas">fresas:</label>
+        <input type="number" min="0" name="fresas" />
+        </br></br>
+
+        <label for="kiwis">kiwis:</label>
+        <input type="number" min="0" name="kiwis" />
+        <br /><br />
+
+        <button type="submit" name="act" value="act">Actualizar</button>
+		<br /><br /><br />
+		
+		<a href="/tienda">Volver al Carrito De Compra</a>
+		
+    </form>
+</body>
+</html>

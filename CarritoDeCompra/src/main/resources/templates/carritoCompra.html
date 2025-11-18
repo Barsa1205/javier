@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito Compra</title>
+</head>
+<body>
+	<h1 th:text="${saludo}"></h1>
+    <h2>Modificar carrito:</h2>
+	<p style="color: red;" th:text="${error}"></p>
+    <form action="carritoCompra" method="post">
+        <label for="platanos">plátanos (3€):</label>
+        <input type="number" th:max="${platanos}" name="platanos" />
+        <br /><br />
+
+        <label for="fresas">fresas (6€):</label>
+        <input type="number" th:max="${fresas}" name="fresas" />
+        <br /><br />
+
+        <label for="kiwis">kiwis (4€):</label>
+        <input type="number" th:max="${kiwis}" name="kiwis" />
+        <br /><br />
+
+        <button type="submit" name="act" value="act">Actualizar</button>
+		</br></br>
+		<button type="submit" name="fin" value="fin">Finalizar compra</button>
+
+		
+    </form>
+
+    <br />
+    
+    <h3>Stock actual (Provisional):</h3>
+    <ol>
+        <li th:text="|platanos: ${platanos}|"></li>
+        <li th:text="|fresas: ${fresas}|"></li>
+        <li th:text="|kiwis: ${kiwis}|"></li>
+    </ol>
+</body>
+</html>

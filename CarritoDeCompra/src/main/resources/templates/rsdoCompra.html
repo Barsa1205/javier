@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Entrada Tienda</title>
+	</head>
+	<body>
+		<h1 th:text="${mensaje}"></h1>
+		
+		<h3>Stock actual:</h3>
+		    <ol>
+		        <li th:text="|platanos: ${platanos}|"></li>
+		        <li th:text="|fresas: ${fresas}|"></li>
+		        <li th:text="|kiwis: ${kiwis}|"></li>
+		    </ol>
+		
+		<a href="/tienda">Volver al Carrito De Compra</a>
+	</body>
+</html>
