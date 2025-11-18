@@ -1,0 +1,83 @@
+# ==============================
+# Archivos de sistema y OS
+# ==============================
+.DS_Store
+Thumbs.db
+
+# ==============================
+# Archivos de compilación
+# ==============================
+/target/
+/out/
+/build/
+
+# ==============================
+# Logs
+# ==============================
+*.log
+logs/
+*.tmp
+
+# ==============================
+# Archivos de configuración de IDE
+# ==============================
+# IntelliJ IDEA
+/.idea/
+/*.iml
+/out/
+
+# Eclipse
+/.classpath
+/.project
+/.settings/
+/bin/
+
+# VS Code
+.vscode/
+
+# ==============================
+# Dependencias
+# ==============================
+/dependency-reduced-pom.xml
+/build/
+/.gradle/
+/.mvn/
+
+# ==============================
+# Archivos de Spring Boot
+# ==============================
+/spring.log
+*.jar
+*.war
+*.ear
+
+# ==============================
+# Archivos temporales y de sistema
+# ==============================
+*.swp
+*.swo
+*~
+
+# ==============================
+# Configuración de Maven
+# ==============================
+/target/
+/pom.xml.tag
+/pom.xml.releaseBackup
+/pom.xml.versionsBackup
+/pom.xml.next
+/release.properties
+
+# ==============================
+# Configuración de Gradle
+# ==============================
+.gradle/
+/build/
+/!gradle-wrapper.jar
+
+# ==============================
+# Otros
+# ==============================
+*.class
+*.cache
+*.bak
