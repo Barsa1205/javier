@@ -1,22 +1,13 @@
 package goya.daw2.carritoCompra;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
-
-/*
- Ejemplo de clase para mantener un mapa de productos, cargarlo de disco en el constructor
- y guardar en disco tras cada cambio.
-
- De esta manera vuestro controlador puede definir una variable global repositorioStock
-
- Al ser un mapa no permite repetidos
-*/
 
 public class RepositorioStock {
 	protected Map<String, Integer> stock;
@@ -34,10 +25,10 @@ public class RepositorioStock {
 		try (
 			ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(RUTA_FICHERO))
 		) {
-			return (HashMap<String, Integer>) entrada.readObject();
+			return (LinkedHashMap<String, Integer>) entrada.readObject();
 		} catch (ClassNotFoundException | IOException e) {
 			System.err.println("Problema leyendo archivo " + RUTA_FICHERO);
-             return new HashMap<String,Integer>();
+             return new LinkedHashMap<String,Integer>();
 		}
        
 	}
@@ -76,17 +67,4 @@ public class RepositorioStock {
 			stock.put(producto, cantidad);
 	    	save();
 		}
-
-    // Prueba de concepto para ejecutar desde Eclipe o Visual
-    
-	/*
-	 * public static void main(String[] args) { RepositorioStock repo = new
-	 * RepositorioStock(); System.out.println(repo.getAll()); repo.add("Peras",10);
-	 * repo.add("Manzanas", 14); repo.save();
-	 * System.out.println(repo.getOne("Peras"));
-	 * 
-	 * }
-	 */
-    
-
 }

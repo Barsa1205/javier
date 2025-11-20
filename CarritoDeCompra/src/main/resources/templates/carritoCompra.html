@@ -10,32 +10,36 @@
     <h2>Modificar carrito:</h2>
 	<p style="color: red;" th:text="${error}"></p>
     <form action="carritoCompra" method="post">
-        <label for="platanos">plátanos (3€):</label>
-        <input type="number" th:max="${platanos}" name="platanos" />
-        <br /><br />
-
-        <label for="fresas">fresas (6€):</label>
-        <input type="number" th:max="${fresas}" name="fresas" />
-        <br /><br />
-
-        <label for="kiwis">kiwis (4€):</label>
-        <input type="number" th:max="${kiwis}" name="kiwis" />
-        <br /><br />
+        
+		<div th:each="item, iter : ${stock}">
+		        <label th:for="${item.key}" th:text="|${item.key} (${precios[iter.index]}€): |"></label>
+		        <input type="number" th:name="${item.key}" th:max="${item.value}" />
+		        <br><br>
+		</div>
 
         <button type="submit" name="act" value="act">Actualizar</button>
 		</br></br>
 		<button type="submit" name="fin" value="fin">Finalizar compra</button>
 
-		
     </form>
 
     <br />
+
+	<h2>Carrito de Compra:</h2>
+	<ul>
+		<div th:each="item, iter : ${stock}">
+			<li th:text="|${item.key} añadidos: ${enCarrito[iter.index]}|"></li>
+			<br />
+		</div>
+		<li th:text="|Total: ${precioTotal}€|"></li>
+	</ul>
+	
     
     <h3>Stock actual (Provisional):</h3>
-    <ol>
-        <li th:text="|platanos: ${platanos}|"></li>
-        <li th:text="|fresas: ${fresas}|"></li>
-        <li th:text="|kiwis: ${kiwis}|"></li>
-    </ol>
+	<ul>
+		<div th:each="item : ${stock}">
+	    	<li th:text="|${item.key}: ${item.value}|"></li>
+		</div>
+	</ul>
 </body>
 </html>

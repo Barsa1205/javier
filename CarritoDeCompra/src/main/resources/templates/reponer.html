@@ -6,31 +6,23 @@
     <title>Reponer Admin</title>
 </head>
 <body>
-	<h1>¡Bienvenido Admin!</h1>
-	</br>
+	<h1 th:text="${saludo}"></h1>
 	
 	<h2>Stock actual (Provisional):</h2>
-	<ol>
-		<li th:text="|platanos: ${platanos}|"></li>
-		<li th:text="|fresas: ${fresas}|"></li>
-		<li th:text="|kiwis: ${kiwis}|"></li>
-	</ol>
-	</br>
+	<ul>
+		<div th:each="item : ${stock}">
+	    	<li th:text="|${item.key}: ${item.value}|"></li>
+		</div>
+	</ul>
     
-	<h2>Stock a Reponer</h2>
+	<h2>Stock a Reponer:</h2>
     <form action="reponer" method="post">
         
-		<label for="platanos">plátanos:</label>
-        <input type="number" min="0" name="platanos" />
-        <br /><br />
-
-        <label for="fresas">fresas:</label>
-        <input type="number" min="0" name="fresas" />
-        </br></br>
-
-        <label for="kiwis">kiwis:</label>
-        <input type="number" min="0" name="kiwis" />
-        <br /><br />
+		<div th:each="item : ${stock}">
+			<label th:for="${item.key}" th:text="|${item.key}: |"></label>
+			<input type="number" th:name="${item.key}" min="0" max="999999999" />
+			<br><br>
+		</div>
 
         <button type="submit" name="act" value="act">Actualizar</button>
 		<br /><br /><br />

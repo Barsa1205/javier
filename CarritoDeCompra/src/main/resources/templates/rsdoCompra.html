@@ -7,12 +7,18 @@
 	<body>
 		<h1 th:text="${mensaje}"></h1>
 		
-		<h3>Stock actual:</h3>
-		    <ol>
-		        <li th:text="|platanos: ${platanos}|"></li>
-		        <li th:text="|fresas: ${fresas}|"></li>
-		        <li th:text="|kiwis: ${kiwis}|"></li>
-		    </ol>
+		<h3 th:if="${enCarrito}">Resumen Compra</h3>
+		<ol th:if="${enCarrito}">
+			<li th:each="item, iter : ${stock}" th:text="|${item.key}: ${enCarrito[iter.index]}|"></li>
+			<li th:text="|Total: ${precioTotal}€|"></li>
+		</ol>
+				
+		<h3>Stock actual (Provisional):</h3>
+		<ul>
+			<div th:each="item : ${stock}">
+		    	<li th:text="|${item.key}: ${item.value}|"></li>
+			</div>
+		</ul>
 		
 		<a href="/tienda">Volver al Carrito De Compra</a>
 	</body>
