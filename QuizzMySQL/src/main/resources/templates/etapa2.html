@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head><title>MiniQuizz etapa 2</title></head>
+	<body>
+		<h1>Elige una Opcion</h1>
+		<form method="post" th:action="@{/}">
+			<p>
+			<p th:text="${errores}" />
+			<label for="comida">Comidas:</label>
+			<select name="comida">
+				<option th:each="comida, indice : ${comidas}" th:value="${indice.index}" th:text="${comida}" />
+			</select>
+			</p>
+			<input type="hidden" name="numEtapa" th:value="${numEtapa}" />
+		
+		    <input type="submit" name="enviar" value="Siguiente" />
+			<input type="submit" name="volver" value="Volver para Atras" />
+		</form> 
+	</body>
+</html>
